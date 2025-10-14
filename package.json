@@ -1,0 +1,17 @@
+{
+    "name": "lucky-13-trivia-game",
+    "version": "1.0.0",
+    "description": "Game based on the TV show \"Lucky 13\".",
+    "main": "index.js",
+    "type": "module",
+    "scripts": {
+        "extract": "node extract_questions.js",
+        "start": "node index.js",
+        "test": "echo \"Error: no test specified\" && exit 1"
+    },
+    "author": "Kevin",
+    "license": "ISC",
+    "devDependencies": {
+        "esbuild": "^0.25.10"
+    }
+}
