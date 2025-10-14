@@ -13,5 +13,9 @@
     "license": "ISC",
     "devDependencies": {
         "esbuild": "^0.25.10"
+    },
+    "dependencies": {
+        "he": "^1.2.0",
+        "lodash": "^4.17.21"
     }
 }
