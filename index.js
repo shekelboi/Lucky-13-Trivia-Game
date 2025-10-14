@@ -6,7 +6,7 @@ import readline from 'readline/promises';
 import { stdin, stdout } from 'process';
 
 const rl = readline.createInterface({ input: stdin, output: stdout });
-const numberOfQuestions = 2;
+const numberOfQuestions = 13;
 const selectedQuestions = lodash.sampleSize(questions, numberOfQuestions);
 // console.log(selectedQuestions)
 
@@ -56,7 +56,7 @@ const numberOfCorrectAnswers = selectedQuestions.reduce((acc, val) => val.answer
 console.log(`Your score is ${numberOfCorrectAnswers} out of ${numberOfQuestions}.`)
 
 if (check_if_in_range(rangeSelected, numberOfCorrectAnswers)) {
-    console.log("You won.");
+    console.log(`You won $${lucky13[rangeSelected].toLocaleString()}.`);
 } else {
     console.log("You lost.");
 }
