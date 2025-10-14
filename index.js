@@ -39,13 +39,13 @@ for (const q of selectedQuestions) {
 
 let indexOfRangeSelected;
 
+console.log("Select one of the following ranges:");
+
+for (const [index, value] of Object.keys(lucky13).entries()) {
+    console.log(index + 1 + ".", value, "-", "$" + lucky13[value].toLocaleString());
+}
+
 do {
-    console.log("Select one of the following ranges:");
-
-    for (const [index, value] of Object.keys(lucky13).entries()) {
-        console.log(index + 1 + ".", value);
-    }
-
     indexOfRangeSelected = Number(await rl.question(""), 10);
 } while (isNaN(indexOfRangeSelected) || indexOfRangeSelected < 1 || indexOfRangeSelected > Object.keys(lucky13).length);
 
