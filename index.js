@@ -6,7 +6,7 @@ import readline from 'readline/promises';
 import { stdin, stdout } from 'process';
 
 const rl = readline.createInterface({ input: stdin, output: stdout });
-const numberOfQuestions = 13;
+const numberOfQuestions = 1;
 const selectedQuestions = lodash.sampleSize(questions, numberOfQuestions);
 // console.log(selectedQuestions)
 
@@ -52,11 +52,24 @@ do {
 
 const rangeSelected = Object.keys(lucky13)[indexOfRangeSelected - 1];
 console.log(rangeSelected, "selected.")
+
+let luckyNumber;
+
+do {
+    luckyNumber = Number(await rl.question("Select your lucky number: "))
+} while (isNaN(luckyNumber) || !check_if_in_range(rangeSelected, luckyNumber));
+
 const numberOfCorrectAnswers = selectedQuestions.reduce((acc, val) => val.answer === val.correct_answer ? acc + 1 : acc, 0)
 console.log(`Your score is ${numberOfCorrectAnswers} out of ${numberOfQuestions}.`)
 
+let bonusWon = numberOfCorrectAnswers == luckyNumber;
+let prize = lucky13[rangeSelected]
+if (bonusWon) {
+    prize += 25000;
+}
+
 if (check_if_in_range(rangeSelected, numberOfCorrectAnswers)) {
-    console.log(`You won $${lucky13[rangeSelected].toLocaleString()}.`);
+    console.log(`You won $${prize.toLocaleString()}.`);
 } else {
     console.log("You lost.");
 }
