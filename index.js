@@ -6,7 +6,7 @@ import readline from 'readline/promises';
 import { stdin, stdout } from 'process';
 
 const rl = readline.createInterface({ input: stdin, output: stdout });
-const numberOfQuestions = 1;
+const numberOfQuestions = 13;
 const selectedQuestions = lodash.sampleSize(questions, numberOfQuestions);
 // console.log(selectedQuestions)
 
